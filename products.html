@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shop premium smartphones, laptops, audio, smartwatches, and accessories at The_Okoli.">
+  <title>Shop All Products — The_Okoli</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header"><div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="The_Okoli home">The<span>_</span>Okoli<span class="brand-mark">®</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+    <nav class="main-nav" aria-label="Main navigation"><a href="index.html">Home</a><a class="active" href="products.html">Products</a><a href="#categories">Categories</a><a href="index.html#about">About Us</a></nav>
+    <div class="header-actions"><form class="header-search" action="products.html" role="search"><label class="sr-only" for="site-search">Search products</label><input id="site-search" name="search" type="search" placeholder="Search products"><button type="submit" aria-label="Search"><span class="icon-search"></span></button></form><a class="cart-link" href="cart.html" aria-label="Shopping cart"><span class="icon-bag"></span><span class="cart-count" data-cart-count>0</span></a></div>
+  </div></header>
+  <main>
+    <section class="page-banner"><div class="container"><p class="eyebrow">THE OKOLI COLLECTION</p><h1>Considered technology.</h1><p>Exceptional objects for the everyday and everything ahead.</p><div class="breadcrumbs"><a href="index.html">Home</a><span>/</span><span>Products</span></div></div></section>
+    <section class="section catalog-section" id="categories"><div class="container">
+      <div class="catalog-toolbar">
+        <div class="filter-categories" aria-label="Filter by category" data-category-filters></div>
+        <div class="catalog-sort"><span data-product-count>0 pieces</span><label for="sort-products">Sort by</label><select id="sort-products" data-product-sort><option value="featured">Featured</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option><option value="rating">Top rated</option></select></div>
+      </div>
+      <div class="product-grid catalog-grid" data-products-grid></div>
+      <div class="empty-state" data-products-empty hidden><span class="empty-icon">⌕</span><h2>Nothing found just yet.</h2><p>Try a different search or category.</p><button class="button button-dark" type="button" data-clear-filters>Clear filters</button></div>
+    </div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-main">
+    <div class="footer-brand"><a class="brand brand-footer" href="index.html">The<span>_</span>Okoli<span class="brand-mark">®</span></a><p>Technology, thoughtfully chosen.<br>For the life you're building.</p><div class="social-links"><a href="#instagram" aria-label="Instagram">ig</a><a href="#facebook" aria-label="Facebook">f</a><a href="#x" aria-label="X">x</a></div></div>
+    <div class="footer-column"><h3>Explore</h3><a href="products.html">All products</a><a href="products.html?category=Smartphones">Smartphones</a><a href="products.html?category=Laptops">Laptops</a><a href="index.html#about">Our story</a></div>
+    <div class="footer-column"><h3>We're here</h3><a href="mailto:davidokoli@gmail.com">davidokoli@gmail.com</a><a href="https://wa.me/2347068092232" target="_blank" rel="noopener noreferrer">WhatsApp: 0706 809 2232</a><span>Lagos, Nigeria</span></div>
+    <div class="footer-column"><h3>A small note</h3><p>Every order is handled with care. Questions? Our team would love to hear from you.</p></div>
+  </div><div class="container footer-bottom"><span>© <span data-year></span> The_Okoli. All rights reserved.</span><span>Made for a more considered life.</span><a href="checkout.html">Checkout</a></div></footer>
+  <div class="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <script src="js/products.js"></script><script src="js/main.js"></script>
+</body>
+</html>

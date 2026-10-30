@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Review your selections in your The_Okoli shopping bag.">
+  <title>Your Bag — The_Okoli</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header"><div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="The_Okoli home">The<span>_</span>Okoli<span class="brand-mark">®</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+    <nav class="main-nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="products.html">Products</a><a href="products.html#categories">Categories</a><a href="index.html#about">About Us</a></nav>
+    <div class="header-actions"><form class="header-search" action="products.html" role="search"><label class="sr-only" for="site-search">Search products</label><input id="site-search" name="search" type="search" placeholder="Search products"><button type="submit" aria-label="Search"><span class="icon-search"></span></button></form><a class="cart-link active-cart" href="cart.html" aria-label="Shopping cart"><span class="icon-bag"></span><span class="cart-count" data-cart-count>0</span></a></div>
+  </div></header>
+  <main>
+    <section class="page-banner page-banner-compact"><div class="container"><h1>Your shopping bag.</h1><p>Good choices. Let's take a look.</p><div class="breadcrumbs"><a href="index.html">Home</a><span>/</span><span>Your bag</span></div></div></section>
+    <section class="section cart-section"><div class="container">
+      <div class="cart-layout" data-cart-content>
+        <div class="cart-items-column"><div class="cart-table-heading"><span>Product</span><span>Quantity</span><span>Total</span></div><div class="cart-items" data-cart-items></div></div>
+        <aside class="cart-summary"><p class="eyebrow">THE SUMMARY</p><h2>Order overview</h2><div class="summary-row"><span>Subtotal</span><strong data-cart-subtotal>₦0</strong></div><div class="summary-row"><span>Delivery</span><span>Calculated at checkout</span></div><div class="summary-total"><span>Total</span><strong data-cart-total>₦0</strong></div><p class="checkout-note">Checkout preview only. No payment is collected.</p><a class="button button-dark button-full" href="checkout.html">Continue to checkout</a><a class="continue-link" href="products.html">← Continue shopping</a></aside>
+      </div>
+      <div class="empty-state cart-empty" data-cart-empty hidden><span class="empty-icon">○</span><h2>Your bag is taking a breather.</h2><p>There’s nothing here yet. Find something you'll love.</p><a class="button button-dark" href="products.html">Explore the collection</a></div>
+    </div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-bottom"><a class="brand brand-footer" href="index.html">The<span>_</span>Okoli<span class="brand-mark">®</span></a><span>© <span data-year></span> The_Okoli. All rights reserved.</span></div></footer>
+  <div class="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <script src="js/products.js"></script><script src="js/main.js"></script><script src="js/cart.js"></script>
+</body>
+</html>
