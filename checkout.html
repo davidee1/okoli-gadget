@@ -39,6 +39,48 @@
     </div></section>
   </main>
   <footer class="site-footer"><div class="container footer-bottom"><a class="brand brand-footer" href="index.html">The<span>_</span>Okoli<span class="brand-mark">®</span></a><span>© <span data-year></span> The_Okoli. All rights reserved.</span></div></footer>
+  <dialog class="account-prompt" data-account-prompt aria-labelledby="account-prompt-title" aria-describedby="account-prompt-description">
+    <div data-account-screen="welcome">
+      <p class="eyebrow">BEFORE CHECKOUT</p>
+      <h2 id="account-prompt-title">Sign in or create an account</h2>
+      <!-- <p id="account-prompt-description">Demo account only: your sign-in details stay in this page and are cleared when you leave or reload. Nothing is sent to a server.</p> -->
+      <div class="account-prompt-choices">
+        <button class="button account-choice" type="button" data-account-view="sign-in">Sign in</button>
+        <button class="button account-choice" type="button" data-account-view="create-account">Create an account</button>
+      </div>
+      <button class="button button-dark button-full account-continue" type="button" data-account-continue>Continue to checkout preview</button>
+      <a class="continue-link" href="cart.html">← Back to your bag</a>
+    </div>
+    <form class="account-form" data-account-form="sign-in" hidden>
+      <p class="eyebrow">WELCOME BACK</p>
+      <h2>Sign in</h2>
+      <p class="account-form-note">Use an account created during this page session.</p>
+      <label class="account-field">Email address<input name="email" type="email" autocomplete="email" required placeholder="you@example.com"></label>
+      <label class="account-field">Password<input name="password" type="password" autocomplete="current-password" required minlength="8" placeholder="At least 8 characters"></label>
+      <p class="account-prompt-message" data-account-message="sign-in" role="alert" hidden></p>
+      <button class="button button-dark button-full" type="submit">Sign in</button>
+      <button class="account-back" type="button" data-account-back>← Back to account options</button>
+    </form>
+    <form class="account-form" data-account-form="create-account" hidden>
+      <p class="eyebrow">JOIN THE_OKOLI</p>
+      <h2>Create an account</h2>
+      <p class="account-form-note">This demo account lasts only while this page stays open.</p>
+      <label class="account-field">Full name<input name="name" type="text" autocomplete="name" required minlength="2" placeholder="Your name"></label>
+      <label class="account-field">Email address<input name="email" type="email" autocomplete="email" required placeholder="you@example.com"></label>
+      <label class="account-field">Password<input name="password" type="password" autocomplete="new-password" required minlength="8" placeholder="At least 8 characters"></label>
+      <label class="account-field">Confirm password<input name="confirm-password" type="password" autocomplete="new-password" required minlength="8" placeholder="Re-enter your password"></label>
+      <p class="account-prompt-message" data-account-message="create-account" role="alert" hidden></p>
+      <button class="button button-dark button-full" type="submit">Create account</button>
+      <button class="account-back" type="button" data-account-back>← Back to account options</button>
+    </form>
+    <div class="account-success" data-account-screen="success" hidden>
+      <p class="eyebrow">ACCOUNT READY</p>
+      <h2 data-account-greeting></h2>
+      <p class="account-form-note">You are signed in for this page session. Continue to your checkout preview.</p>
+      <button class="button button-dark button-full account-continue" type="button" data-account-continue>Continue to checkout preview</button>
+      <button class="account-back" type="button" data-account-back>← Back to account options</button>
+    </div>
+  </dialog>
   <div class="toast-region" aria-live="polite" aria-atomic="true"></div>
   <script src="js/products.js"></script><script src="js/main.js"></script><script src="js/cart.js"></script>
 </body>

@@ -105,7 +105,86 @@ function initializeCheckout() {
   });
 }
 
+function initializeAccountPrompt() {
+  const prompt = document.querySelector("[data-account-prompt]");
+  const checkoutContent = document.querySelector("[data-checkout-content]");
+  if (!prompt || !checkoutContent || checkoutContent.hidden) return;
+
+  const accounts = new Map();
+  const showScreen = (name) => {
+    prompt.querySelectorAll("[data-account-screen], [data-account-form]").forEach((screen) => {
+      screen.hidden = screen.getAttribute("data-account-screen") !== name
+        && screen.getAttribute("data-account-form") !== name;
+    });
+  };
+  const showMessage = (form, text) => {
+    const message = form.querySelector("[data-account-message]");
+    if (message) {
+      message.textContent = text;
+      message.hidden = false;
+    }
+  };
+
+  prompt.querySelectorAll("[data-account-view]").forEach((button) => {
+    button.addEventListener("click", () => showScreen(button.getAttribute("data-account-view")));
+  });
+  prompt.querySelectorAll("[data-account-back]").forEach((button) => {
+    button.addEventListener("click", () => showScreen("welcome"));
+  });
+
+  const signInForm = prompt.querySelector('[data-account-form="sign-in"]');
+  if (signInForm) {
+    signInForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (!signInForm.reportValidity()) return;
+      const formData = new FormData(signInForm);
+      const email = String(formData.get("email")).trim().toLowerCase();
+      const account = accounts.get(email);
+      if (!account || account.password !== formData.get("password")) {
+        showMessage(signInForm, "That email and password do not match an account created in this page session.");
+        return;
+      }
+      signInForm.reset();
+      const greeting = prompt.querySelector("[data-account-greeting]");
+      if (greeting) greeting.textContent = `Welcome back, ${account.name.trim().split(/\s+/)[0]}.`;
+      showScreen("success");
+    });
+  }
+
+  const createAccountForm = prompt.querySelector('[data-account-form="create-account"]');
+  if (createAccountForm) {
+    createAccountForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (!createAccountForm.reportValidity()) return;
+      const formData = new FormData(createAccountForm);
+      const name = String(formData.get("name")).trim();
+      const email = String(formData.get("email")).trim().toLowerCase();
+      const password = formData.get("password");
+      if (password !== formData.get("confirm-password")) {
+        showMessage(createAccountForm, "Your passwords do not match.");
+        return;
+      }
+      if (accounts.has(email)) {
+        showMessage(createAccountForm, "An account with this email already exists in this page session. Please sign in.");
+        return;
+      }
+      accounts.set(email, { name, password });
+      createAccountForm.reset();
+      const greeting = prompt.querySelector("[data-account-greeting]");
+      if (greeting) greeting.textContent = `Welcome, ${name.split(/\s+/)[0]}.`;
+      showScreen("success");
+    });
+  }
+
+  prompt.querySelectorAll("[data-account-continue]").forEach((button) => {
+    button.addEventListener("click", () => prompt.close());
+  });
+  prompt.addEventListener("cancel", (event) => event.preventDefault());
+  prompt.showModal();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   renderCartPage();
+  initializeAccountPrompt();
   initializeCheckout();
 });
